@@ -11,11 +11,11 @@ cat $INPUT_FILE \
 cat $INPUT_FILE \
 | tail -n +2 \
 | awk \
-    'BEGIN{
-      FS=OFS="\",";
+   'BEGIN{
+      FS=","; OFS=",";
       Regexes[0] = "[Jj]unior\\+?/?";
-      Regexes[2] = "[Mm]iddle\\+?/?";
-      Regexes[4] = "[Ss]enior";
+      Regexes[1] = "[Mm]iddle\\+?/?";
+      Regexes[2] = "[Ss]enior";
     }
     {
       result = "";
@@ -28,10 +28,10 @@ cat $INPUT_FILE \
         }
       }
       if (length(result) == 0) {
-        $3 = "\"-";
+        $3 = "\"-\"";
       }
       else {
-        $3 = "\"" result;
+        $3 = "\"" result "\"";
       }
       
       print;
