@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-#!/Users/mmago/PythonDS/Day03/ex00/mmago
-
 import cProfile
 import time
 import sys
